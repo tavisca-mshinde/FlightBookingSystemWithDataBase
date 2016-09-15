@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FlightBookingSystemDatabase" Class="FlightDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=manojs\mssqlserver2012;Initial Catalog=FlightBookingSystemDatabase;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FlightBookingSystemDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SHREEKESHM\MSSQLSERVER2012;Initial Catalog=FlightBookingSystemDatabase;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FlightBookingSystemDatabaseConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Booking" Member="Bookings">
     <Type Name="Booking">
       <Column Name="BookingId" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

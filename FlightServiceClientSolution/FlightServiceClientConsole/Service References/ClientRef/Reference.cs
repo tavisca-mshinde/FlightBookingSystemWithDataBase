@@ -118,7 +118,7 @@ namespace FlightServiceClientConsole.ClientRef {
         private string FlightClassField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FlightIdField;
+        private long FlightIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PriceField;
@@ -218,12 +218,12 @@ namespace FlightServiceClientConsole.ClientRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FlightId {
+        public long FlightId {
             get {
                 return this.FlightIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.FlightIdField, value) != true)) {
+                if ((this.FlightIdField.Equals(value) != true)) {
                     this.FlightIdField = value;
                     this.RaisePropertyChanged("FlightId");
                 }
@@ -281,24 +281,15 @@ namespace FlightServiceClientConsole.ClientRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Filter", Namespace="http://schemas.datacontract.org/2004/07/FlightIISServices.Entity")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Filter", Namespace="http://schemas.datacontract.org/2004/07/FlightIISServices.Model")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FlightServiceClientConsole.ClientRef.PriceFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FlightServiceClientConsole.ClientRef.AirlineFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FlightServiceClientConsole.ClientRef.RatingFilter))]
     public partial class Filter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AirlineNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EndRangeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double RatingField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StartRangeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -310,18 +301,27 @@ namespace FlightServiceClientConsole.ClientRef {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AirlineName {
-            get {
-                return this.AirlineNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AirlineNameField, value) != true)) {
-                    this.AirlineNameField = value;
-                    this.RaisePropertyChanged("AirlineName");
-                }
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PriceFilter", Namespace="http://schemas.datacontract.org/2004/07/FlightIISServices.Model")]
+    [System.SerializableAttribute()]
+    public partial class PriceFilter : FlightServiceClientConsole.ClientRef.Filter {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EndRangeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StartRangeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int EndRange {
@@ -332,19 +332,6 @@ namespace FlightServiceClientConsole.ClientRef {
                 if ((this.EndRangeField.Equals(value) != true)) {
                     this.EndRangeField = value;
                     this.RaisePropertyChanged("EndRange");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Rating {
-            get {
-                return this.RatingField;
-            }
-            set {
-                if ((this.RatingField.Equals(value) != true)) {
-                    this.RatingField = value;
-                    this.RaisePropertyChanged("Rating");
                 }
             }
         }
@@ -361,13 +348,50 @@ namespace FlightServiceClientConsole.ClientRef {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AirlineFilter", Namespace="http://schemas.datacontract.org/2004/07/FlightIISServices.Model")]
+    [System.SerializableAttribute()]
+    public partial class AirlineFilter : FlightServiceClientConsole.ClientRef.Filter {
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AirlineNameField;
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AirlineName {
+            get {
+                return this.AirlineNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AirlineNameField, value) != true)) {
+                    this.AirlineNameField = value;
+                    this.RaisePropertyChanged("AirlineName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RatingFilter", Namespace="http://schemas.datacontract.org/2004/07/FlightIISServices.Model")]
+    [System.SerializableAttribute()]
+    public partial class RatingFilter : FlightServiceClientConsole.ClientRef.Filter {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double RatingField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Rating {
+            get {
+                return this.RatingField;
+            }
+            set {
+                if ((this.RatingField.Equals(value) != true)) {
+                    this.RatingField = value;
+                    this.RaisePropertyChanged("Rating");
+                }
             }
         }
     }
@@ -380,9 +404,6 @@ namespace FlightServiceClientConsole.ClientRef {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CustomerIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
@@ -403,19 +424,6 @@ namespace FlightServiceClientConsole.ClientRef {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CustomerId {
-            get {
-                return this.CustomerIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CustomerIdField, value) != true)) {
-                    this.CustomerIdField = value;
-                    this.RaisePropertyChanged("CustomerId");
-                }
             }
         }
         

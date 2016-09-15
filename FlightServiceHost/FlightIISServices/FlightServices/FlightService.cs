@@ -14,7 +14,7 @@ namespace FlightIISServices.FlightServices
     public class FlightService : IFlightService
     {
 
-        FlightDataClassesDataContext dataContext = new FlightDataClassesDataContext(@"Data Source=manojs\mssqlserver2012;Initial Catalog=FlightBookingSystemDatabase;Persist Security Info=True;User ID=sa;Password=test123!@#");
+        FlightDataClassesDataContext dataContext = new FlightDataClassesDataContext(@"Data Source = SHREEKESHM\MSSQLSERVER2012; Initial Catalog = FlightBookingSystemDatabase; Persist Security Info=True;User ID = sa; Password=test123!@#");
 
         public Result GetFlightsBySourceDestinationTravellersAndClass(string source, string destination, string traveller, string flightClass)
         {

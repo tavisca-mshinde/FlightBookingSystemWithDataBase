@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:50436/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FlightIISServices.Entity" />
+  <xs:import schemaLocation="http://localhost:50436/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/FlightIISServices.Model" />
   <xs:element name="GetFlightsBySourceDestinationTravellersAndClass">
     <xs:complexType>
       <xs:sequence>
@@ -22,7 +23,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/FlightIISServices.Entity" minOccurs="0" name="result" nillable="true" type="q2:Result" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FlightIISServices.Entity" minOccurs="0" name="filter" nillable="true" type="q3:Filter" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FlightIISServices.Model" minOccurs="0" name="filter" nillable="true" type="q3:Filter" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
