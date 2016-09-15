@@ -42,7 +42,7 @@ namespace FlightServiceClientConsole
                                 Console.WriteLine("Please enter class");
                                 Console.WriteLine("1. Economy");
                                 Console.WriteLine("2. Business");
-                                Console.WriteLine("3 FirstClass");
+                                Console.WriteLine("3. FirstClass");
                                 string choice = Console.ReadLine();
 
                                 switch (choice)
@@ -86,7 +86,7 @@ namespace FlightServiceClientConsole
                             do
                             {
                                 filteredResult = result;
-                                Filter filter = new Filter();
+                               
 
 
                                 Console.WriteLine("1. Price Range");
@@ -99,27 +99,31 @@ namespace FlightServiceClientConsole
                                 {
                                     if (filterString[i] == '1')
                                     {
+                                        PriceFilter filter= new PriceFilter();
                                         Console.WriteLine("please Enter you Range");
                                         Console.WriteLine("Enter Starting range");
                                         filter.StartRange = Convert.ToInt32(Console.ReadLine());
                                         Console.WriteLine("Enter ending range");
                                         filter.EndRange = Convert.ToInt32(Console.ReadLine());
-
+                                        filteredResult= client.FilteringFlights(filteredResult, filter);
                                     }
                                     if (filterString[i] == '2')
                                     {
-
+                                        AirlineFilter filter = new AirlineFilter();
                                         Console.WriteLine("Enter Airline name");
                                         filter.AirlineName = Console.ReadLine();
+                                        filteredResult = client.FilteringFlights(filteredResult, filter);
 
                                     }
                                     if (filterString[i] == '3')
                                     {
+                                        RatingFilter filter = new RatingFilter();
                                         Console.WriteLine("Enter Rating");
                                         filter.Rating = Convert.ToDouble(Console.ReadLine());
+                                        filteredResult = client.FilteringFlights(filteredResult, filter);
                                     }
                                 }
-                                filteredResult = client.FilteringFlights(filteredResult, filter);
+                            
                                 if (filteredResult.Status)
                                 {
                                     ShowFlightList(filteredResult);
@@ -138,7 +142,7 @@ namespace FlightServiceClientConsole
                         ShowFlightList(result);
                         Console.WriteLine("Select Flight. Please enter flight Id");
                         string flightIdInput = Console.ReadLine();
-                        Flight flight = result.FlightList.Where(x => x.FlightId.Equals(flightIdInput)).FirstOrDefault();
+                        Flight flight = result.FlightList.Where(x => x.FlightId==Convert.ToInt64(flightIdInput)).FirstOrDefault();
                         result.FlightList = null;
                         result.FlightList = new Flight[1] {flight};
                         Console.WriteLine("Your have selected:");
@@ -147,7 +151,6 @@ namespace FlightServiceClientConsole
                         //***********************************************Customer Details***********************************************//
                         Customer customer = new Customer();
                         Console.WriteLine("Enter your details");
-                        customer.CustomerId = new Random().Next().ToString();
                         Console.WriteLine("Enter your first name.");
                         customer.FisrtName = Console.ReadLine();
                         Console.WriteLine("Enter your last name.");

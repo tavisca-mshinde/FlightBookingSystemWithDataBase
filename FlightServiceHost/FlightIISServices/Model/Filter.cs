@@ -14,6 +14,7 @@ namespace FlightIISServices.Model
     
     public class Filter
     {
+        [OperationContract]
         public virtual List<FlightIISServices.Entity.Flight> ApplyFilter(List<FlightIISServices.Entity.Flight> flightList)
         {
             return null;

@@ -22,25 +22,15 @@
       <xs:element minOccurs="0" name="DepartureTime" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FlightClass" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FlightId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightId" type="xs:long" />
       <xs:element minOccurs="0" name="Price" type="xs:int" />
       <xs:element minOccurs="0" name="Rating" type="xs:double" />
       <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Flight" nillable="true" type="tns:Flight" />
-  <xs:complexType name="Filter">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AirlineName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EndRange" type="xs:int" />
-      <xs:element minOccurs="0" name="Rating" type="xs:double" />
-      <xs:element minOccurs="0" name="StartRange" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Filter" nillable="true" type="tns:Filter" />
   <xs:complexType name="Customer">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FisrtName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
