@@ -14,6 +14,6 @@ namespace FlightIISServices.Entity
         [DataMember]
         public string Message { get; set; }
         [DataMember]
-        public List<Flight> FlightList { get; set; }
+        public List<Entity.Flight> FlightList { get; set; }
     }
 }

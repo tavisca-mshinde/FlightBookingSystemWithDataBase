@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,11 +74,18 @@
     <Compile Include="Entity\Card.cs" />
     <Compile Include="Entity\Customer.cs" />
     <Compile Include="Entity\Flight.cs" />
-    <Compile Include="Entity\Filter.cs" />
+    <Compile Include="Model\AirlineFilter.cs" />
+    <Compile Include="Model\Filter.cs" />
+    <Compile Include="Model\PriceFilter.cs" />
     <Compile Include="Entity\Result.cs" />
-    <Compile Include="FlightServices\FilterFlights.cs" />
+    <Compile Include="FlightDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlightDataClasses.dbml</DependentUpon>
+    </Compile>
     <Compile Include="FlightServices\FlightService.cs" />
     <Compile Include="FlightServices\IFlightService.cs" />
+    <Compile Include="Model\RatingFilter.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -89,11 +97,24 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FlightDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>FlightDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FlightDataClasses.dbml.layout">
+      <DependentUpon>FlightDataClasses.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <PropertyGroup>

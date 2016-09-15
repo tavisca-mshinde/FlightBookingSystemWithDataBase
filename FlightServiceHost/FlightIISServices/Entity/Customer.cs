@@ -10,8 +10,6 @@ namespace FlightIISServices.Entity
     public class Customer
     {
         [DataMember]
-        public string CustomerId { get; set; }
-        [DataMember]
         public string FisrtName { get; set; }
         [DataMember]
         public string LastName { get; set; }
