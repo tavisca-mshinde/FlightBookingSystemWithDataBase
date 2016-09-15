@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlightIISServices.Entity;
+using FlightIISServices.Model;
 using System.ServiceModel;
 
 namespace FlightIISServices.FlightServices
@@ -16,7 +17,7 @@ namespace FlightIISServices.FlightServices
         [OperationContract]
         Result FilteringFlights(Result result,Filter filter);
         [OperationContract]
-        string AddNewBooking(Flight flight, Customer customer, int travellers);
+        string AddNewBooking(Entity.Flight flight, Entity.Customer customer, int travellers);
         [OperationContract]
         string CancelBooking(string bookindId);
         [OperationContract]

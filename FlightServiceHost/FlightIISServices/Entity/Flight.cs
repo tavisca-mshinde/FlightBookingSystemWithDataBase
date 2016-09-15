@@ -11,7 +11,7 @@ namespace FlightIISServices.Entity
     public class Flight
     {
         [DataMember]
-        public string FlightId { set; get; }
+        public long FlightId { set; get; }
         [DataMember]
         public string AirlineName { set; get; }
         [DataMember]
