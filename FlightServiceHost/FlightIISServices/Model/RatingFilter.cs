@@ -18,7 +18,7 @@ namespace FlightIISServices.Model
         {
             Rating =rating;
         }
-        [OperationContract]
+        
         public override List<FlightIISServices.Entity.Flight> ApplyFilter(List<FlightIISServices.Entity.Flight> flightList)
         {
             var query = from d in flightList where d.Rating >= Rating select d;

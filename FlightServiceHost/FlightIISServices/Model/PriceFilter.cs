@@ -21,7 +21,7 @@ namespace FlightIISServices.Model
             StartRange = startRange;
             EndRange = endRange;
         }
-        [OperationContract]
+        
         public override List<FlightIISServices.Entity.Flight> ApplyFilter(List<FlightIISServices.Entity.Flight> flightList)
         {
             var query = from d in flightList where d.Price >= StartRange && d.Price <= EndRange select d;
