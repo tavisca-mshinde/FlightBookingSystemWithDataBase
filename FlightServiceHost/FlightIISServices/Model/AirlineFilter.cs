@@ -7,7 +7,7 @@ using System.ServiceModel;
 
 namespace FlightIISServices.Model
 {
-   [Serializable]
+   
     [DataContract]
     public class AirlineFilter : Filter
     {
